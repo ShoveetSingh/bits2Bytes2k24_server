@@ -63,16 +63,20 @@ exports.loginUser = async (req,res)=>{
      const {data:user,error:err} = await supabase
      .from('users')
      .select('*')
-     .eq('u_email',u_email)
-     .eq('password',password)
+     .match({'u_email':u_email,'password':password})
+    //  .eq('u_email',u_email)
+    //  .eq('password',password)
 
      if(err) throw err;
       if(user && user.length !== 0){
         res.send('User found');
       }
+      else
+      {
+        res.send('User not found');
+      }
 
-  }
-  catch(error){
+  }catch(error){
    console.log(error);
    res.send({
       data:null,
