@@ -1,23 +1,22 @@
-// Connecting with Supabase
 const { createClient } = require('@supabase/supabase-js')
 const supabaseUrl = process.env.VITE_SUPABASE_URL
 const supabaseKey = process.env.VITE_SUPABASE_KEY
 const supabase = createClient(supabaseUrl, supabaseKey)
-// Connection Done
 
 // Below is a Typical example of Express API implementation with 
 // Supabase DB
-/*
-const createUser = async (req, res) => {
+
+exports.createUser = async (req, res) => {
     try {
-      const { email, password } = req.body
+      const { name,email, password } = req.body
       const { data: user, error: err } = await supabase
         .from('profiles') // Selection
-        -> .select('*')     // Projection without join
-        -> .select(`*, attendance(*)`) // Projection with join
-        -> .eq('email', email) // Condition (single)
-        -> .eq('email', email)
-            .eq('password', password) // condition (multiple, can be more by adding more .eq())
+        .select('*')     // Projection without join
+        .select(`*, attendance(*)`) // Projection with join
+         .eq('email', email) // Condition (single)
+         .eq('email', email)
+         .eq('password', password) // condition (multiple, can be more by adding more .eq())
+         .eq('name', name)
       if (err) throw err
       if (user.length !== 0)
         throw new Error('A user with this email already exists.')
@@ -38,4 +37,3 @@ const createUser = async (req, res) => {
       })
     }
   }
-*/
