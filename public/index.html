@@ -6,24 +6,26 @@
     <title>Document</title>
 </head>
 <body>
-    <form id = "form_data" action = "/addData" method = "POST">
+    <form id = "form_data" action = "/api/participants/addData" method = "POST" onsubmit="add_data();">
         Name:<input type="text" name="name" id="name" placeholder="Name"><br>
         Email<input type="text" name="email" id="email" placeholder="Email"><br>
         Password<input type="password" name="password" id="password" placeholder="****"><br>
-        <button type="submit" onclick="add_data()" value="Submit">Register</button>
+        <button type="submit" value="Submit">Register</button>
     </form>
     <div id="data"></div>
     <script>
         function add_data(){
             var name = document.getElementById('name').value;
             var email = document.getElementById('email').value;
-            var pssword = document.getElementById('pssword').value;
+            var password = document.getElementById('password').value;
             var data = {
                 name: name,
                 email:email,
                 password:password
             }
-        }fetch('/addData', {
+            console.log(data);
+        }
+        fetch('/api/participants/addData', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
