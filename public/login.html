@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document1</title>
+</head>
+<body>
+    <form id="second_id" action = "/api/participants/login" method ="POST" onsubmit="search()">
+        Email<input type="text" name="email" id="email" placeholder="Email"><br>
+        Password<input type="password" name="password" id="password" placeholder="****"><br>
+        <button type="submit" value="Submit">Login</button>
+    </form>
+    <div id = "data"></div>
+    <script>
+        function search(){
+        var email = document.getElementById('email').value;
+        var password = document.getElementbyId('password').value;
+        }fetch('/api/participants/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(response => response.json()).then(result => {
+            const resultDiv = document.getElementById("data");
+            resultDiv.textContent = result.message;
+        })
+    </script>
+</body>
+</html>

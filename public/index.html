@@ -10,18 +10,35 @@
         Name:<input type="text" name="name" id="name" placeholder="Name"><br>
         Email<input type="text" name="email" id="email" placeholder="Email"><br>
         Password<input type="password" name="password" id="password" placeholder="****"><br>
+        Mobile_Number:<input type="number" name="mobile_number" id="mobile_number" placeholder="Mobile Number"><br>
+        University roll number:<input type="number" name="university_roll_number" id="university_roll_number" placeholder="University Roll Number"><br>
+        stream <input type="text" name="stream" id="stream" placeholder="Stream"><br>
+        year: <input type="number" name="year" id="year" placeholder="Year"><br>
+        college: <input type="text" name="college" id="college" placeholder="College"><br>
         <button type="submit" value="Submit">Register</button>
     </form>
+    <p1>or</p1>
+    <a href="/login.html">Login</a>
     <div id="data"></div>
     <script>
         function add_data(){
             var name = document.getElementById('name').value;
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
+            var mobile_number = document.getElementById('mobile_number').value;
+            var university_roll_number = document.getElementById('university_roll_number').value;
+            var stream = document.getElementById('stream').value;
+            var year = document.getElementById('year').value;
+            var college = document.getElementById('college').value;
             var data = {
                 name: name,
                 email:email,
-                password:password
+                password:password,
+                mobile_number:mobile_number,
+                university_roll_number:university_roll_number,
+                stream:stream,
+                year:year,
+                college:college
             }
             console.log(data);
         }
